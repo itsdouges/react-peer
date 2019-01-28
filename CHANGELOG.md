@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [0.2.0][] - 2019-01-28
+
 ### Changed
 
 - BREAKING CHANGE: Renamed `useRecievePeerState` to `useReceivePeerState`, and all mentions of it across the codebase
@@ -36,7 +38,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - initial release
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/madou/react-peer/compare/v0.1.3...HEAD
+[Unreleased]: https://github.com/madou/react-peer/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/madou/react-peer/compare/v0.1.3...v0.2.0
 [0.1.3]: https://github.com/madou/react-peer/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/madou/react-peer/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/madou/react-peer/compare/v0.1.0...v0.1.1
