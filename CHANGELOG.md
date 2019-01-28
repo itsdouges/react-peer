@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [0.1.1][] - 2019-01-28
+
 ### Fixed
 
 - `usePeerState()` not being able to store more than the latest peer connection
@@ -16,5 +18,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - initial release
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/madou/react-peer/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/madou/react-peer/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/madou/react-peer/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/madou/react-peer/tree/v0.1.0
