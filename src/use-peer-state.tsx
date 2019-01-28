@@ -22,7 +22,7 @@ const usePeerState = <TState extends {}>(
       });
 
       localPeer.on('connection', conn => {
-        setConnections([conn, ...connections]);
+        setConnections(prevState => [...prevState, conn]);
 
         // We want to immediately send the newly connected peer the current data.
         conn.on('open', () => {

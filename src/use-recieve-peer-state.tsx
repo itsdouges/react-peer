@@ -27,8 +27,11 @@ const useRecievePeerState = <TData extends {}>(
         const connection = localPeer.connect(peerBrokerId);
 
         connection.on('open', () => {
-          setIsConnected(true);
-          connection.on('data', (recievedData: TData) => setState(recievedData));
+          connection.on('data', (recievedData: TData) => {
+            // We want isConnected and data to be set at the same time.
+            setState(recievedData);
+            setIsConnected(true);
+          });
         });
 
         connection.on('close', () => {
