@@ -24,7 +24,7 @@ yarn add react-peer
 
 ## Usage
 
-### usePeerState<TState>(initialState?: TState, opts?: { brokerId?: string }): [TState, Function, string, Peer.DataConnection[]];
+### `usePeerState<TState>(initialState?: TState, opts?: { brokerId?: string }): [TState, Function, string, Peer.DataConnection[]];`
 
 Behaves as your regular `useState` hook,
 but will **eventually** send data to any connected peers.
@@ -42,7 +42,7 @@ const App = () => {
 };
 ```
 
-### useReceivePeerState<TState>(peerBrokerId: string, opts?: { brokerId?: string }): [TState | undefined, boolean];
+### `useReceivePeerState<TState>(peerBrokerId: string, opts?: { brokerId?: string }): [TState | undefined, boolean];`
 
 Will receive peer state **eventually** from a peer identified using `peerBrokerId`.
 
@@ -54,4 +54,34 @@ import { useReceivePeerState } from 'react-peer';
 const App = () => {
   const [state, isConnected] = useReceivePeerState('swjg3ls4bq000000');
 };
+```
+
+### `<PeerStateProvider />`
+
+Useful if not yet using react hooks.
+When setting the value prop it will propagate it to all connected peers.
+
+`brokerId` prop is optionally used when you already have a broker id generated.
+
+```js
+import { PeerStateProvider } from 'react-peer';
+
+<PeerStateProvider value={{ message: 'hello' }}>
+  {({ brokerId, connections }) => <div />}
+</PeerStateProvider>;
+```
+
+### `<ReceivePeerState />`
+
+Useful if not yet using react hooks.
+Will receive data from the peer broker.
+
+`brokerId` prop is optionally used when you already have a broker id generated.
+
+```js
+import { ReceivePeerState } from 'react-peer';
+
+<PeerStateProvider peerBrokerId="swjg3ls4bq000000">
+  {({ data, isConnected }) => <div />}
+</PeerStateProvider>;
 ```

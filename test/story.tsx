@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import TestApp from './index';
+import HooksApp from './hooks';
+import ComponentsApp from './components';
 
-storiesOf('react-peer', module).add('Default', () => <TestApp />);
+storiesOf('react-peer', module)
+  .add('hooks', () => <HooksApp />)
+  .add('components', () => <ComponentsApp />);

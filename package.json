@@ -24,7 +24,7 @@
   ],
   "size-limit": [
     {
-      "limit": "900 B",
+      "limit": "1.3 KB",
       "path": "dist/esm/index.js"
     }
   ],
