@@ -1,0 +1,93 @@
+{
+  "name": "react-peer",
+  "version": "0.0.0",
+  "description": "Easily connect to a peer browser with web-rtc.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/esm/index.tsx",
+  "author": "Michael Dougall",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"not yet\"",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook",
+    "build": "rm -rf dist && tsc && tsc -p ./tsconfig.esm.json",
+    "prepublish": "yarn build",
+    "preversion": "yarn test",
+    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md",
+    "postversion": "git push && git push --tags",
+    "size": "size-limit"
+  },
+  "files": [
+    "dist/"
+  ],
+  "size-limit": [
+    {
+      "limit": "31.10 KB",
+      "path": "dist/esm/index.js"
+    }
+  ],
+  "dependencies": {
+    "peerjs": "^0.3.18"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1"
+  },
+  "devDependencies": {
+    "@storybook/react": "^4.1.11",
+    "@types/jest": "^23.3.13",
+    "@types/node": "^10.12.18",
+    "@types/peerjs": "^0.0.30",
+    "@types/react": "^16.7.21",
+    "@types/react-dom": "^16.0.11",
+    "@types/storybook__react": "^4.0.0",
+    "babel-core": "^6.26.3",
+    "changelog-verify": "^1.1.2",
+    "react": "16.8.0-alpha.1",
+    "react-dom": "16.8.0-alpha.1",
+    "react-scripts": "2.1.3",
+    "size-limit": "^0.21.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "version-changelog": "^3.1.1"
+  },
+  "keywords": [
+    "peerjs",
+    "webrtc",
+    "web-rtc",
+    "peer-to-peer",
+    "p2p",
+    "react-hooks",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madou/react-peer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/madou/react-peer/issues"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "mapCoverage": true,
+    "testRegex": "__tests__/.*\\.test\\.tsx$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>test/setup.js",
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.test.json",
+        "skipBabel": true
+      }
+    }
+  }
+}
