@@ -1,7 +1,7 @@
 import { useLayoutEffect, useState } from 'react';
 import Peer from 'peerjs';
 
-const useRecievePeerState = <TData extends {}>(
+const useReceivePeerState = <TData extends {}>(
   peerBrokerId: string,
   opts: { brokerId: string } = { brokerId: '' }
 ): [TData | undefined, boolean] => {
@@ -28,9 +28,9 @@ const useRecievePeerState = <TData extends {}>(
           const connection = localPeer.connect(peerBrokerId);
 
           connection.on('open', () => {
-            connection.on('data', (recievedData: TData) => {
+            connection.on('data', (receivedData: TData) => {
               // We want isConnected and data to be set at the same time.
-              setState(recievedData);
+              setState(receivedData);
               setIsConnected(true);
             });
           });
@@ -52,4 +52,4 @@ const useRecievePeerState = <TData extends {}>(
   return [state, isConnected];
 };
 
-export default useRecievePeerState;
+export default useReceivePeerState;

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Changed
+
+- BREAKING CHANGE: Renamed `useRecievePeerState` to `useReceivePeerState`, and all mentions of it across the codebase
+
 ## [0.1.3][] - 2019-01-28
 
 ### Added

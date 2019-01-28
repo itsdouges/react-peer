@@ -42,16 +42,16 @@ const App = () => {
 };
 ```
 
-### useRecievePeerState<TState>(peerBrokerId: string, opts?: { brokerId?: string }): [TState | undefined, boolean];
+### useReceivePeerState<TState>(peerBrokerId: string, opts?: { brokerId?: string }): [TState | undefined, boolean];
 
-Will recieve peer state **eventually** from a peer identified using `peerBrokerId`.
+Will receive peer state **eventually** from a peer identified using `peerBrokerId`.
 
 `opts.brokerId` is optionally used when you already have a broker id generated.
 
 ```js
-import { useRecievePeerState } from 'react-peer';
+import { useReceivePeerState } from 'react-peer';
 
 const App = () => {
-  const [state, isConnected] = useRecievePeerState('swjg3ls4bq000000');
+  const [state, isConnected] = useReceivePeerState('swjg3ls4bq000000');
 };
 ```
