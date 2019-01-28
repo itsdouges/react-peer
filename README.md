@@ -7,19 +7,19 @@
 [![Dev Dependencies](https://david-dm.org/madou/react-peer/peer-status.svg)](https://david-dm.org/madou/react-peer?type=peer)
 [![Dev Dependencies](https://david-dm.org/madou/react-peer/dev-status.svg)](https://david-dm.org/madou/react-peer?type=dev)
 
-Send state to peers as easy as a setState() ⚛🍐
+Using the power of [WebRTC](https://webrtc.org/faq/#what-is-webrtc) and [peerjs](https://peerjs.com/) you can send data to someone else's browser as easy as using setState() ⚛🍐
+
+## Installation
 
 Uses [peerjs](https://peerjs.com/) under the hood,
 requires a version of react/react-dom which contain hooks - at the moment this is `16.8.0-alpha.1`.
 
-## Installation
-
 ```bash
-npm install react-peer
+npm install react-peer react@16.8.0-alpha.1 react-dom@16.8.0-alpha.1 --save
 ```
 
 ```bash
-yarn add react-peer
+yarn add react-peer react@16.8.0-alpha.1 react-dom@16.8.0-alpha.1
 ```
 
 ## Usage
@@ -81,7 +81,7 @@ Will receive data from the peer broker.
 ```js
 import { ReceivePeerState } from 'react-peer';
 
-<PeerStateProvider peerBrokerId="swjg3ls4bq000000">
+<ReceivePeerState peerBrokerId="swjg3ls4bq000000">
   {({ data, isConnected }) => <div />}
-</PeerStateProvider>;
+</ReceivePeerState>;
 ```
