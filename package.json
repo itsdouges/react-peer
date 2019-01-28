@@ -13,7 +13,7 @@
     "build-storybook": "build-storybook",
     "build": "rm -rf dist && tsc && tsc -p ./tsconfig.esm.json",
     "prepublish": "yarn build",
-    "preversion": "yarn test",
+    "preversion": "yarn test && yarn build && yarn size",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md",
     "postversion": "git push && git push --tags",
     "size": "size-limit"
@@ -23,7 +23,7 @@
   ],
   "size-limit": [
     {
-      "limit": "31.10 KB",
+      "limit": "31.11 KB",
       "path": "dist/esm/index.js"
     }
   ],

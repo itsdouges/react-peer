@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Changed
+
+- Increased size limit by 0.01KB
+- Ignore dist folder from repo
+
 ## [0.1.1][] - 2019-01-28
 
 ### Fixed
