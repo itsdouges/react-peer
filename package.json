@@ -1,6 +1,6 @@
 {
   "name": "react-peer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Easily connect to a peer browser with web-rtc.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
