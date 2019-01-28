@@ -1,10 +1,13 @@
 # react-peer
 
-[![NPM version](http://img.shields.io/npm/v/react-peer.svg?style=flat-square)](https://www.npmjs.com/package/react-peer)
-[![NPM downloads](http://img.shields.io/npm/dm/react-peer.svg?style=flat-square)](https://www.npmjs.com/package/react-peer)
-[![Build Status](http://img.shields.io/travis/madou/react-peer/master.svg?style=flat-square)](https://travis-ci.org/madou/react-peer)
+[![Build Status](https://travis-ci.org/madou/react-peer.svg?branch=master)](https://travis-ci.org/madou/react-peer)
+[![npm](https://img.shields.io/npm/v/react-peer.svg)](https://www.npmjs.com/package/react-peer)
+[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/react-peer.svg)](https://bundlephobia.com/result?p=react-peer)
+[![Dev Dependencies](https://david-dm.org/madou/react-peer/status.svg)](https://david-dm.org/madou/react-peer)
+[![Dev Dependencies](https://david-dm.org/madou/react-peer/peer-status.svg)](https://david-dm.org/madou/react-peer?type=peer)
+[![Dev Dependencies](https://david-dm.org/madou/react-peer/dev-status.svg)](https://david-dm.org/madou/react-peer?type=dev)
 
-Send state to peers as easy as a setState() 🎣👪.
+Send state to peers as easy as a setState() ⚛🍐
 
 Uses [peerjs](https://peerjs.com/) under the hood,
 requires a version of react/react-dom which contain hooks - at the moment this is `16.8.0-alpha.1`.
