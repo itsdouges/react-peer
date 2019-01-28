@@ -1,7 +1,7 @@
 {
   "name": "react-peer",
   "version": "0.1.0",
-  "description": "Easily connect to a peer browser with web-rtc.",
+  "description": "Send state to peers as easy as a setState()",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/esm/index.tsx",

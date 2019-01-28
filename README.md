@@ -4,10 +4,12 @@
 [![NPM downloads](http://img.shields.io/npm/dm/react-peer.svg?style=flat-square)](https://www.npmjs.com/package/react-peer)
 [![Build Status](http://img.shields.io/travis/madou/react-peer/master.svg?style=flat-square)](https://travis-ci.org/madou/react-peer)
 
-Easily connect to a peer browser with web-rtc 🎣👪.
+Send state to peers as easy as a setState() 🎣👪.
 
 Uses [peerjs](https://peerjs.com/) under the hood,
 requires a version of react/react-dom which contain hooks - at the moment this is `16.8.0-alpha.1`.
+
+## Installation
 
 ```bash
 npm install react-peer
