@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- `PeerStateProvider` and `ReceivePeerState` components to be used when react hooks aren't available for the consumer
+
 ## [0.2.0][] - 2019-01-28
 
 ### Changed
