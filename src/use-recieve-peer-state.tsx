@@ -16,26 +16,28 @@ const useRecievePeerState = <TData extends {}>(
         return;
       }
 
-      const localPeer = new Peer(opts.brokerId);
-      setPeer(localPeer);
+      import('peerjs').then(({ default: Peer }) => {
+        const localPeer = new Peer(opts.brokerId);
+        setPeer(localPeer);
 
-      localPeer.on('open', () => {
-        if (brokerId !== localPeer.id) {
-          setBrokerId(localPeer.id);
-        }
+        localPeer.on('open', () => {
+          if (brokerId !== localPeer.id) {
+            setBrokerId(localPeer.id);
+          }
 
-        const connection = localPeer.connect(peerBrokerId);
+          const connection = localPeer.connect(peerBrokerId);
 
-        connection.on('open', () => {
-          connection.on('data', (recievedData: TData) => {
-            // We want isConnected and data to be set at the same time.
-            setState(recievedData);
-            setIsConnected(true);
+          connection.on('open', () => {
+            connection.on('data', (recievedData: TData) => {
+              // We want isConnected and data to be set at the same time.
+              setState(recievedData);
+              setIsConnected(true);
+            });
           });
-        });
 
-        connection.on('close', () => {
-          setIsConnected(false);
+          connection.on('close', () => {
+            setIsConnected(false);
+          });
         });
       });
 

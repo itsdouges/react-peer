@@ -7,6 +7,7 @@
   "module": "dist/esm/index.tsx",
   "author": "Michael Dougall",
   "license": "MIT",
+  "sideEffect": false,
   "scripts": {
     "test": "echo \"not yet\"",
     "storybook": "start-storybook -p 9009",

@@ -12,21 +12,23 @@ const usePeerState = <TState extends {}>(
 
   useLayoutEffect(
     () => {
-      const localPeer = new Peer(opts.brokerId);
-      setPeer(localPeer);
+      import('peerjs').then(({ default: Peer }) => {
+        const localPeer = new Peer(opts.brokerId);
+        setPeer(localPeer);
 
-      localPeer.on('open', () => {
-        if (brokerId !== localPeer.id) {
-          setBrokerId(localPeer.id);
-        }
-      });
+        localPeer.on('open', () => {
+          if (brokerId !== localPeer.id) {
+            setBrokerId(localPeer.id);
+          }
+        });
 
-      localPeer.on('connection', conn => {
-        setConnections(prevState => [...prevState, conn]);
+        localPeer.on('connection', conn => {
+          setConnections(prevState => [...prevState, conn]);
 
-        // We want to immediately send the newly connected peer the current data.
-        conn.on('open', () => {
-          conn.send(state);
+          // We want to immediately send the newly connected peer the current data.
+          conn.on('open', () => {
+            conn.send(state);
+          });
         });
       });
 

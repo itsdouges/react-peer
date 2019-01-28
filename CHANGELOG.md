@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- `sideEffects: true` to packagejson to enable code splitting
+- Put `peerjs` behind a dynamic import to enable codesplitting in modern es-module environments
+
 ## [0.1.2][] - 2019-01-28
 
 ### Changed
