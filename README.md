@@ -11,15 +11,16 @@ Using the power of [WebRTC](https://webrtc.org/faq/#what-is-webrtc) and [peerjs]
 
 ## Installation
 
-Uses [peerjs](https://peerjs.com/) under the hood,
-requires a version of react/react-dom which contain hooks - at the moment this is `16.8.0-alpha.1`.
+Uses [peerjs](https://peerjs.com/) under the hood.
+If you want to use the peer hooks make sure to use a version that supports it - at the moment this is `16.8.0-alpha.1`,
+else using the latest version of react will be great!
 
 ```bash
-npm install react-peer react@16.8.0-alpha.1 react-dom@16.8.0-alpha.1 --save
+npm install react-peer react react-dom --save
 ```
 
 ```bash
-yarn add react-peer react@16.8.0-alpha.1 react-dom@16.8.0-alpha.1
+yarn add react-peer react react-dom
 ```
 
 ## Usage
