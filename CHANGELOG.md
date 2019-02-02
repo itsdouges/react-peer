@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- `usePeerState()` now correctly sends the current state instead of initial state when a new peer connects
+
 ## [0.2.1][] - 2019-01-29
 
 ### Added
