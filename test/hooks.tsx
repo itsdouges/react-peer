@@ -3,8 +3,8 @@ import { usePeerState, useReceivePeerState } from '../src';
 
 const App = () => {
   const [peerBrokerId, setPeerBrokerId] = React.useState('');
-  const [state, setState, brokerId, connections] = usePeerState('hello');
-  const [peerState, isConnected] = useReceivePeerState(peerBrokerId);
+  const [state, setState, brokerId, connections, stateErr] = usePeerState('hello');
+  const [peerState, isConnected, recErr] = useReceivePeerState(peerBrokerId);
 
   const connectToPeer = (e: any) => {
     e.preventDefault();
@@ -23,7 +23,8 @@ const App = () => {
       <strong>usePeerState()</strong> <br />
       broker id: {brokerId} <br />
       local state: {JSON.stringify(state)} <br />
-      connected peers: {JSON.stringify(connections.length)}
+      connected peers: {JSON.stringify(connections.length)} <br />
+      err: {JSON.stringify(stateErr)}
       <form onSubmit={sendDataToPeer}>
         <input id="data" />
         <button>send data</button>
@@ -32,6 +33,7 @@ const App = () => {
       <strong>useReceivePeerState()</strong> <br />
       connected: {JSON.stringify(isConnected)} <br />
       received state: {JSON.stringify(peerState)} <br />
+      err: {JSON.stringify(recErr)}
       <form onSubmit={connectToPeer}>
         <input id="key" />
         <button>connect</button>

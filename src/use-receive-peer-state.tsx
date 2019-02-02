@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import Peer from 'peerjs';
+import { PeerError } from './types';
 
 const useReceivePeerState = <TData extends {}>(
   peerBrokerId: string,
   opts: { brokerId: string } = { brokerId: '' }
-): [TData | undefined, boolean] => {
+): [TData | undefined, boolean, any] => {
   const [state, setState] = useState<TData | undefined>(undefined);
   const [isConnected, setIsConnected] = useState(false);
   const [peer, setPeer] = useState<Peer | undefined>(undefined);
   const [brokerId, setBrokerId] = useState(opts.brokerId);
+  const [error, setError] = useState<PeerError | undefined>(undefined);
 
   useEffect(
     () => {
@@ -38,7 +40,11 @@ const useReceivePeerState = <TData extends {}>(
           connection.on('close', () => {
             setIsConnected(false);
           });
+
+          connection.on('error', err => setError(err));
         });
+
+        localPeer.on('error', err => setError(err));
       });
 
       return () => {
@@ -49,7 +55,7 @@ const useReceivePeerState = <TData extends {}>(
     [peerBrokerId, opts.brokerId]
   );
 
-  return [state, isConnected];
+  return [state, isConnected, error];
 };
 
 export default useReceivePeerState;

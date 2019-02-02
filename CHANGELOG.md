@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Errors are now exposed in the components and hooks
+
 ## [0.2.3][] - 2019-02-02
 
 ### Changed

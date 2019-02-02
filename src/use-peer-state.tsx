@@ -1,12 +1,14 @@
 import { useEffect, useState, useRef } from 'react';
 import Peer from 'peerjs';
+import { PeerError } from './types';
 
 const usePeerState = <TState extends {}>(
   initialState: TState,
   opts: { brokerId: string } = { brokerId: '' }
-): [TState, Function, string, Peer.DataConnection[]] => {
+): [TState, Function, string, Peer.DataConnection[], any] => {
   const [connections, setConnections] = useState<Peer.DataConnection[]>([]);
   const [state, setState] = useState<TState>(initialState);
+  const [error, setError] = useState<PeerError | undefined>(undefined);
   // We useRef to get around useLayoutEffect's closure only having access
   // to the initial state since we only re-execute it if brokerId changes.
   const stateRef = useRef<TState>(initialState);
@@ -24,6 +26,8 @@ const usePeerState = <TState extends {}>(
             setBrokerId(localPeer.id);
           }
         });
+
+        localPeer.on('error', err => setError(err));
 
         localPeer.on('connection', conn => {
           setConnections(prevState => [...prevState, conn]);
@@ -51,6 +55,7 @@ const usePeerState = <TState extends {}>(
     },
     brokerId,
     connections,
+    error,
   ];
 };
 

@@ -20,12 +20,14 @@ const App = () => {
   return (
     <div className="App">
       <PeerStateProvider value={state}>
-        {({ brokerId, connections }) => (
+        {({ brokerId, connections, error: stateErr }) => (
           <>
             <strong>PeerStateProvider</strong> <br />
             broker id: {brokerId} <br />
             local state: {JSON.stringify(state)} <br />
             connected peers: {JSON.stringify(connections.length)}
+            <br />
+            err: {JSON.stringify(stateErr)}
             <form onSubmit={sendDataToPeer}>
               <input id="data" />
               <button>send data</button>
@@ -33,10 +35,11 @@ const App = () => {
             <br />
             <strong>ReceivePeerState</strong> <br />
             <ReceivePeerState peerBrokerId={peerBrokerId}>
-              {({ data, isConnected }) => (
+              {({ data, isConnected, error: recErr }) => (
                 <>
                   connected: {JSON.stringify(isConnected)} <br />
                   received state: {JSON.stringify(data)} <br />
+                  err: {JSON.stringify(recErr)}
                   <form onSubmit={connectToPeer}>
                     <input id="key" />
                     <button>connect</button>

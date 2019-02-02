@@ -1,15 +1,19 @@
 import * as React from 'react';
 import Peer from 'peerjs';
+import { PeerError } from './types';
 
 interface ReceivePeerStateProps<TState> {
   brokerId: string;
   peerBrokerId: string;
-  children: (props: { data: TState | undefined; isConnected: boolean }) => React.ReactNode;
+  children: (
+    props: { data: TState | undefined; isConnected: boolean; error: PeerError | undefined }
+  ) => React.ReactNode;
 }
 
 interface ReceivePeerStateState<TState> {
   data: TState | undefined;
   isConnected: boolean;
+  error: PeerError | undefined;
 }
 
 export default class ReceivePeerState<TState> extends React.Component<
@@ -23,6 +27,7 @@ export default class ReceivePeerState<TState> extends React.Component<
   state = {
     data: undefined,
     isConnected: false,
+    error: undefined,
   };
 
   peer: Peer;
@@ -66,7 +71,11 @@ export default class ReceivePeerState<TState> extends React.Component<
             isConnected: false,
           });
         });
+
+        connection.on('error', error => this.setState({ error }));
       });
+
+      this.peer.on('error', error => this.setState({ error }));
     });
   };
 
@@ -81,11 +90,12 @@ export default class ReceivePeerState<TState> extends React.Component<
   }
 
   render() {
-    const { data, isConnected } = this.state;
+    const { data, isConnected, error } = this.state;
 
     return this.props.children({
       data,
       isConnected,
+      error,
     });
   }
 }

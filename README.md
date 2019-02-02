@@ -25,7 +25,7 @@ yarn add react-peer react react-dom
 
 ## Usage
 
-### `usePeerState<TState>(initialState?: TState, opts?: { brokerId?: string }): [TState, Function, string, Peer.DataConnection[]];`
+### `usePeerState<TState>(initialState?: TState, opts?: { brokerId?: string }): [TState, Function, string, Peer.DataConnection[], PeerError | undefined];`
 
 Behaves as your regular `useState` hook,
 but will **eventually** send data to any connected peers.
@@ -37,13 +37,13 @@ Peers can connect to you using the `brokerId` that is **eventually** returned.
 import { usePeerState } from 'react-peer';
 
 const App = () => {
-  const [state, setState, brokerId, connections] = usePeerState();
+  const [state, setState, brokerId, connections, error] = usePeerState();
 
   setState({ message: 'hello' });
 };
 ```
 
-### `useReceivePeerState<TState>(peerBrokerId: string, opts?: { brokerId?: string }): [TState | undefined, boolean];`
+### `useReceivePeerState<TState>(peerBrokerId: string, opts?: { brokerId?: string }): [TState | undefined, boolean, PeerError | undefined];`
 
 Will receive peer state **eventually** from a peer identified using `peerBrokerId`.
 
@@ -53,7 +53,7 @@ Will receive peer state **eventually** from a peer identified using `peerBrokerI
 import { useReceivePeerState } from 'react-peer';
 
 const App = () => {
-  const [state, isConnected] = useReceivePeerState('swjg3ls4bq000000');
+  const [state, isConnected, error] = useReceivePeerState('swjg3ls4bq000000');
 };
 ```
 
@@ -68,7 +68,7 @@ When setting the value prop it will propagate it to all connected peers.
 import { PeerStateProvider } from 'react-peer';
 
 <PeerStateProvider value={{ message: 'hello' }}>
-  {({ brokerId, connections }) => <div />}
+  {({ brokerId, connections, error }) => <div />}
 </PeerStateProvider>;
 ```
 
@@ -83,6 +83,6 @@ Will receive data from the peer broker.
 import { ReceivePeerState } from 'react-peer';
 
 <ReceivePeerState peerBrokerId="swjg3ls4bq000000">
-  {({ data, isConnected }) => <div />}
+  {({ data, isConnected, error }) => <div />}
 </ReceivePeerState>;
 ```
