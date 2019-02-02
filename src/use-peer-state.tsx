@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Peer from 'peerjs';
 
 const usePeerState = <TState extends {}>(
@@ -13,7 +13,7 @@ const usePeerState = <TState extends {}>(
   const [peer, setPeer] = useState<Peer | undefined>(undefined);
   const [brokerId, setBrokerId] = useState(opts.brokerId);
 
-  useLayoutEffect(
+  useEffect(
     () => {
       import('peerjs').then(({ default: Peer }) => {
         const localPeer = new Peer(opts.brokerId);

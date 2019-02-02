@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Peer from 'peerjs';
 
 const useReceivePeerState = <TData extends {}>(
@@ -10,7 +10,7 @@ const useReceivePeerState = <TData extends {}>(
   const [peer, setPeer] = useState<Peer | undefined>(undefined);
   const [brokerId, setBrokerId] = useState(opts.brokerId);
 
-  useLayoutEffect(
+  useEffect(
     () => {
       if (!peerBrokerId) {
         return;
