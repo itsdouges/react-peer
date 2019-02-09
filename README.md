@@ -12,8 +12,8 @@ Using the power of [WebRTC](https://webrtc.org/faq/#what-is-webrtc) and [peerjs]
 ## Installation
 
 Uses [peerjs](https://peerjs.com/) under the hood.
-If you want to use the peer hooks make sure to use a version that supports it - at the moment this is `16.8.0-alpha.1`,
-else using the latest version of react will be great!
+Requires at least `react@^16.3.0` and `react-dom@^16.3.0`.
+Comes with TypeScript types out-of-the-box.
 
 ```bash
 npm install react-peer react react-dom --save
@@ -27,7 +27,9 @@ yarn add react-peer react react-dom
 
 ### `usePeerState<TState>(initialState?: TState, opts?: { brokerId?: string }): [TState, Function, string, Peer.DataConnection[], PeerError | undefined];`
 
-Behaves as your regular `useState` hook,
+**⚠️ Make sure to use `react@^16.8.0` and `react-dom@^16.8.0` if wanting to use hooks. Unsure what hooks are? [Check out their introduction!](https://reactjs.org/docs/hooks-intro.html) ⚠️**
+
+Behaves as your regular [`useState()`](https://reactjs.org/docs/hooks-state.html) hook,
 but will **eventually** send data to any connected peers.
 Peers can connect to you using the `brokerId` that is **eventually** returned.
 
@@ -44,6 +46,8 @@ const App = () => {
 ```
 
 ### `useReceivePeerState<TState>(peerBrokerId: string, opts?: { brokerId?: string }): [TState | undefined, boolean, PeerError | undefined];`
+
+**⚠️ Make sure to use `react@^16.8.0` and `react-dom@^16.8.0` if wanting to use hooks. Unsure what hooks are? [Check out their introduction!](https://reactjs.org/docs/hooks-intro.html) ⚠️**
 
 Will receive peer state **eventually** from a peer identified using `peerBrokerId`.
 

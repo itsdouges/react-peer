@@ -32,8 +32,8 @@
     "peerjs": "^0.3.18"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "react-dom": ">=16"
+    "react": ">=16.3.0",
+    "react-dom": ">=16.3.0"
   },
   "devDependencies": {
     "@storybook/react": "^4.1.11",
