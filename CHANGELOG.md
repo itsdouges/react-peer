@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Changed
+
+- Loosened `react` and `react-dom` peer dependency - now if you want to use the custom hooks make sure to have `^16.8.0`, else `^16` is fine for the component usage
+
 ## [0.2.4][] - 2019-02-02
 
 ### Added
