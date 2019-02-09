@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [0.2.6][] - 2019-02-10
+
 ### Changed
 
 - Updated README
@@ -73,7 +75,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - initial release
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/madou/react-peer/compare/v0.2.5...HEAD
+[Unreleased]: https://github.com/madou/react-peer/compare/v0.2.6...HEAD
+[0.2.6]: https://github.com/madou/react-peer/compare/v0.2.5...v0.2.6
 [0.2.5]: https://github.com/madou/react-peer/compare/v0.2.4...v0.2.5
 [0.2.4]: https://github.com/madou/react-peer/compare/v0.2.3...v0.2.4
 [0.2.3]: https://github.com/madou/react-peer/compare/v0.2.2...v0.2.3
