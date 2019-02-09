@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [0.2.5][] - 2019-02-10
+
 ### Changed
 
 - Loosened `react` and `react-dom` peer dependency - now if you want to use the custom hooks make sure to have `^16.8.0`, else `^16` is fine for the component usage
@@ -66,7 +68,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - initial release
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/madou/react-peer/compare/v0.2.4...HEAD
+[Unreleased]: https://github.com/madou/react-peer/compare/v0.2.5...HEAD
+[0.2.5]: https://github.com/madou/react-peer/compare/v0.2.4...v0.2.5
 [0.2.4]: https://github.com/madou/react-peer/compare/v0.2.3...v0.2.4
 [0.2.3]: https://github.com/madou/react-peer/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/madou/react-peer/compare/v0.2.1...v0.2.2
