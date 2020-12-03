@@ -5,7 +5,7 @@ import { PeerError } from './types';
 const usePeerState = <TState extends {}>(
   initialState: TState,
   opts: { brokerId: string } = { brokerId: '' }
-): [TState, Function, string, Peer.DataConnection[], any] => {
+): [TState, Function, string, Peer.DataConnection[], Peer | undefined, any] => {
   const [connections, setConnections] = useState<Peer.DataConnection[]>([]);
   const [state, setState] = useState<TState>(initialState);
   const [error, setError] = useState<PeerError | undefined>(undefined);
@@ -36,6 +36,17 @@ const usePeerState = <TState extends {}>(
           conn.on('open', () => {
             conn.send(stateRef.current);
           });
+
+          conn.on('close', () => {
+            setConnections(prevState => {
+              var indexOfClosedConnection = prevState.findIndex(value => value.peer === conn.peer);
+              if (indexOfClosedConnection !== -1) {
+                prevState.splice(indexOfClosedConnection, 1);
+                return [...prevState];
+              }
+              return prevState;
+            })
+          });
         });
       });
 
@@ -55,7 +66,8 @@ const usePeerState = <TState extends {}>(
     },
     brokerId,
     connections,
-    error,
+    peer,
+    error
   ];
 };
 

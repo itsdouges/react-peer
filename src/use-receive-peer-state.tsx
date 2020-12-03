@@ -4,11 +4,13 @@ import { PeerError } from './types';
 
 const useReceivePeerState = <TData extends {}>(
   peerBrokerId: string,
-  opts: { brokerId: string } = { brokerId: '' }
-): [TData | undefined, boolean, any] => {
+  opts: { brokerId: string } = { brokerId: '' },
+  connectionOpts?: Peer.PeerConnectOption
+): [TData | undefined, boolean, any, Peer.DataConnection | undefined, Peer | undefined] => {
   const [state, setState] = useState<TData | undefined>(undefined);
   const [isConnected, setIsConnected] = useState(false);
   const [peer, setPeer] = useState<Peer | undefined>(undefined);
+  const [connection, setConnection] = useState<Peer.DataConnection | undefined>(undefined);
   const [brokerId, setBrokerId] = useState(opts.brokerId);
   const [error, setError] = useState<PeerError | undefined>(undefined);
 
@@ -27,7 +29,8 @@ const useReceivePeerState = <TData extends {}>(
             setBrokerId(localPeer.id);
           }
 
-          const connection = localPeer.connect(peerBrokerId);
+          const connection = localPeer.connect(peerBrokerId, connectionOpts);
+          setConnection(connection);
 
           connection.on('open', () => {
             connection.on('data', (receivedData: TData) => {
@@ -55,7 +58,7 @@ const useReceivePeerState = <TData extends {}>(
     [peerBrokerId, opts.brokerId]
   );
 
-  return [state, isConnected, error];
+  return [state, isConnected, error, connection, peer];
 };
 
 export default useReceivePeerState;
