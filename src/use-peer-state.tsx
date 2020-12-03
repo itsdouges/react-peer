@@ -41,7 +41,8 @@ const usePeerState = <TState extends {}>(
             setConnections(prevState => {
               var indexOfClosedConnection = prevState.findIndex(value => value.peer === conn.peer);
               if (indexOfClosedConnection !== -1) {
-                return prevState.splice(indexOfClosedConnection, 1);
+                prevState.splice(indexOfClosedConnection, 1);
+                return [...prevState];
               }
               return prevState;
             })
